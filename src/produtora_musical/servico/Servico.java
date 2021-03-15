@@ -7,5 +7,19 @@ public abstract class Servico {
     private double orcamento;
     private Vendedor vendedor;
     private Diretor diretor;
-    private static int codigo;
+    private static int codigo = 0;
+
+    public Servico(double orcamento, Vendedor vendedor,
+                   Diretor diretor){
+        this.diretor = diretor;
+        this.orcamento = orcamento;
+        this.vendedor = vendedor;
+        this.codigo += 1;
+    }
+
+    // TODO: add serviços em produtor
+
+    public double getOrcamento() {
+        return orcamento;
+    }
 }
