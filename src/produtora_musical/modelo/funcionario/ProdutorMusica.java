@@ -1,8 +1,7 @@
-package produtora_musical.funcionario;
+package produtora_musical.modelo.funcionario;
 
-import produtora_musical.servico.Servico;
+import produtora_musical.modelo.servico.Servico;
 
-import java.sql.Array;
 import java.util.ArrayList;
 
 public class ProdutorMusica extends Funcionario{
@@ -11,10 +10,10 @@ public class ProdutorMusica extends Funcionario{
     // add array para guardar todos os trabalhos que o produtor participa
     private ArrayList<Servico> servicos = new ArrayList<>();
 
-    public ProdutorMusica(String nome, double salario, int qtdMusica, int metaDeMusicas){
-        super(nome, salario);
+    public ProdutorMusica(String nome, double salario, int metaDeMusicas){
+        super(nome, salario, "ProdMusical");
         this.metaDeMusicas = metaDeMusicas;
-        this.quantidadeMusicaProduzida = qtdMusica;
+        this.quantidadeMusicaProduzida = 0;
     }
 
     public void addServico(Servico servico){
@@ -35,5 +34,9 @@ public class ProdutorMusica extends Funcionario{
         }else{
             return 0;
         }
+    }
+
+    public void addQuantidadeDeMusica(){
+        this.quantidadeMusicaProduzida += 1;
     }
 }

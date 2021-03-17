@@ -1,16 +1,18 @@
-package produtora_musical.servico;
+package produtora_musical.modelo.servico;
 
-import produtora_musical.funcionario.Diretor;
-import produtora_musical.funcionario.Vendedor;
+import produtora_musical.modelo.funcionario.Diretor;
+import produtora_musical.modelo.funcionario.Vendedor;
 
 public abstract class Servico {
+    private String nomeDoProjeto;
     private double orcamento;
     private Vendedor vendedor;
     private Diretor diretor;
     private static int codigo = 0;
 
     public Servico(double orcamento, Vendedor vendedor,
-                   Diretor diretor){
+                   Diretor diretor, String nomeDoProjeto){
+        this.nomeDoProjeto = nomeDoProjeto;
         this.diretor = diretor;
         this.orcamento = orcamento;
         this.vendedor = vendedor;
