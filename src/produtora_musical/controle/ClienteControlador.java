@@ -7,7 +7,7 @@ public class ClienteControlador {
     public void setCliente(Cliente cliente){
         ClienteDAO.addCliente(cliente);
     }
-    public Cliente buscarCliente(String nomeCliente){
-        return ClienteDAO.buscarCliente(nomeCliente);
+    public Cliente buscarCliente(int codigoCliente){
+        return ClienteDAO.buscarCliente(codigoCliente);
     }
 }

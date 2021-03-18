@@ -30,4 +30,13 @@ public class FuncionarioDAO {
             }
         }
     }
+
+    public static boolean temFuncionario(String tipo){
+        for(Funcionario funcionario : funcionarios){
+            if(funcionario.getTipo() == tipo) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

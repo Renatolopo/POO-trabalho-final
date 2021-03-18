@@ -2,10 +2,14 @@ package produtora_musical.apresentacao;
 
 import produtora_musical.controle.ClienteControlador;
 import produtora_musical.controle.FuncionarioControlador;
+import produtora_musical.controle.ServicoControlador;
 import produtora_musical.dados.ClienteDAO;
 import produtora_musical.dados.FuncionarioDAO;
 import produtora_musical.modelo.cliente.Cliente;
 import produtora_musical.modelo.funcionario.*;
+import produtora_musical.modelo.servico.Pacote1;
+import produtora_musical.modelo.servico.Pacote2;
+import produtora_musical.modelo.servico.Servico;
 
 import java.util.Scanner;
 
@@ -13,9 +17,11 @@ public class Menu {
     public static void main(String[] args) {
         int opc;
         Scanner scan = new Scanner(System.in);
+        System.out.println("-----------------------------------");
+        System.out.println("\t\t\tBEM VINDO!!!");
         do {
             System.out.println("-----------------------------------");
-            System.out.println("\t\t\tBEM VINDO");
+            System.out.println("\t\t\tMENU");
             System.out.println("-----------------------------------");
             System.out.print("1 - Cadastrar Funcionario\n" +
                     "2 - Cadastrar Serviço\n" +
@@ -39,32 +45,91 @@ public class Menu {
     }
 
     private static void cadastrarServico(Scanner scan) {
-        System.out.print("Escolha qual pacote de Serviço será contratado:\n" +
-                "Pacote 1 - (Somente produção de Música)\n" +
-                "Pacote 2 - (Produção de música com video clipe)\n" +
-                "Pacote 3 - (Musica com video clipe e Trabalho de Marketing)\n" +
-                ": ");
-        int opc = Integer.parseInt(scan.nextLine());
-        System.out.print("Informe o Valor do orçamento deste projeto: ");
-        double orcamentoProjeto = Double.parseDouble(scan.nextLine());
+        if(ClienteDAO.temClientes()) {
+            System.out.println("------------------------------------------");
+            System.out.println("\t\t\t LISTA DE CLIENTES");
+            System.out.println("------------------------------------------");
+            ClienteDAO.listClientes();
+            System.out.println("------------------------------------------");
+            System.out.println("Informe o codigo do cliente que ira contratar o serviço: ");
+            int codigoCliente = Integer.parseInt(scan.nextLine());
+            Cliente cliente = ClienteDAO.buscarCliente(codigoCliente);
 
-        System.out.println("------------------------------------------");
-        System.out.println("\t\t\t LISTA DE VENDEDORES");
-        System.out.println("------------------------------------------");
-        FuncionarioDAO.listFuncionarios("Vendedor");
-        System.out.println("------------------------------------------");
-        System.out.println("Informe o codigo do Vendedor responsavel: ");
-        int codigoVendedor = Integer.parseInt(scan.nextLine());
-        Funcionario vendedor = FuncionarioDAO.buscarFuncionario(codigoVendedor);
 
-        System.out.println("------------------------------------------");
-        System.out.println("\t\t\t LISTA DE DIRETORES");
-        System.out.println("------------------------------------------");
-        FuncionarioDAO.listFuncionarios("Diretor");
-        System.out.println("------------------------------------------");
-        System.out.println("Informe o codigo do Diretor responsavel: ");
-        int codigoDiretor = Integer.parseInt(scan.nextLine());
-        Funcionario diretor = FuncionarioDAO.buscarFuncionario(codigoDiretor);
+            System.out.print("Escolha qual pacote de Serviço será contratado:\n" +
+                    "Pacote 1 - (Somente produção de Música)\n" +
+                    "Pacote 2 - (Produção de música com video clipe)\n" +
+                    "Pacote 3 - (Musica com video clipe e Trabalho de Marketing)\n" +
+                    ": ");
+            int opc = Integer.parseInt(scan.nextLine());
+            System.out.printf("Informe o nome do projeto: ");
+            String nomeProjeto = scan.nextLine();
+            System.out.print("Informe o Valor do orçamento deste projeto: ");
+            double orcamentoProjeto = Double.parseDouble(scan.nextLine());
+
+
+            System.out.println("------------------------------------------");
+            System.out.println("\t\t\t LISTA DE VENDEDORES");
+            System.out.println("------------------------------------------");
+            FuncionarioDAO.listFuncionarios("Vendedor");
+            System.out.println("------------------------------------------");
+            System.out.println("Informe o codigo do Vendedor responsavel: ");
+            int codigoVendedor = Integer.parseInt(scan.nextLine());
+            Funcionario vendedor = FuncionarioDAO.buscarFuncionario(codigoVendedor);
+
+            System.out.println("------------------------------------------");
+            System.out.println("\t\t\t LISTA DE DIRETORES");
+            System.out.println("------------------------------------------");
+            FuncionarioDAO.listFuncionarios("Diretor");
+            System.out.println("------------------------------------------");
+            System.out.println("Informe o codigo do Diretor responsavel: ");
+            int codigoDiretor = Integer.parseInt(scan.nextLine());
+            Funcionario diretor = FuncionarioDAO.buscarFuncionario(codigoDiretor);
+
+
+            System.out.println("------------------------------------------");
+            System.out.println("\t\t\t PRODUTORES DE MUSICA");
+            System.out.println("------------------------------------------");
+            FuncionarioDAO.listFuncionarios("ProdMusical");
+            System.out.println("------------------------------------------");
+            System.out.println("Informe o codigo de um produtor de musica: ");
+            int codigoProdutorMusical = Integer.parseInt(scan.nextLine());
+            Funcionario produtorMusical = FuncionarioDAO.buscarFuncionario(codigoProdutorMusical);
+
+            if(opc == 3){
+                System.out.println("------------------------------------------");
+                System.out.println("\t\t\t MARKETING");
+                System.out.println("------------------------------------------");
+                FuncionarioDAO.listFuncionarios("Marketing");
+                System.out.println("------------------------------------------");
+                System.out.println("Informe o codigo de um proficional do Marketing: ");
+                int codigoMarketing = Integer.parseInt(scan.nextLine());
+                Funcionario marketing = FuncionarioDAO.buscarFuncionario(codigoMarketing);
+            }
+
+            Servico servico = null;
+            if(opc == 1){
+                servico = new Pacote1(orcamentoProjeto, cliente, vendedor, diretor, produtorMusical,
+                        nomeProjeto);
+            }else if(opc == 2){
+                System.out.println("------------------------------------------");
+                System.out.println("\t\t\t PRODUTORES DE VIDEO");
+                System.out.println("------------------------------------------");
+                FuncionarioDAO.listFuncionarios("ProdVideo");
+                System.out.println("------------------------------------------");
+                System.out.println("Informe o codigo de um produtor de video: ");
+                int codigoProdutorVideo = Integer.parseInt(scan.nextLine());
+                Funcionario produtorVideo = FuncionarioDAO.buscarFuncionario(codigoProdutorVideo);
+
+                servico = new Pacote2(orcamentoProjeto, vendedor, diretor, produtorMusical,
+                        produtorVideo, nomeProjeto);
+            }
+
+            ServicoControlador servicoControle = new ServicoControlador();
+
+        } else{
+            System.out.println("É nescessário cadastrar um cliente antes!");
+        }
 
     }
 

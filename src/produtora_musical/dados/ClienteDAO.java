@@ -11,11 +11,10 @@ public class ClienteDAO {
         clientes.add(cliente);
     }
 
-    // TODO: busca com codigo ao inves de nome
-    public static Cliente buscarCliente(String nomeCliente){
+    public static Cliente buscarCliente(int codigo){
         Cliente cliente = null;
         for(Cliente clienteEmPesquisa : clientes){
-            if(clienteEmPesquisa.getNome().equals(nomeCliente)){
+            if(clienteEmPesquisa.getCodigo() == codigo){
                 cliente = clienteEmPesquisa;
                 break;
             }
@@ -26,6 +25,14 @@ public class ClienteDAO {
     public static void listClientes(){
         for(Cliente cliente : clientes){
             System.out.printf("Nome: %s  -  Codigo: %d\n", cliente.getNome(), cliente.getCodigo());
+        }
+    }
+
+    public static boolean temClientes(){
+        if(clientes.size() == 0){
+            return false;
+        }else{
+            return true;
         }
     }
 }
