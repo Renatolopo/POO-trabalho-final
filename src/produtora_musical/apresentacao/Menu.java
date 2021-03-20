@@ -1,5 +1,6 @@
 package produtora_musical.apresentacao;
 
+import produtora_musical.controle.CarregarDados;
 import produtora_musical.controle.ClienteControlador;
 import produtora_musical.controle.FuncionarioControlador;
 import produtora_musical.controle.ServicoControlador;
@@ -9,12 +10,16 @@ import produtora_musical.modelo.cliente.Cliente;
 import produtora_musical.modelo.funcionario.*;
 import produtora_musical.modelo.servico.Pacote1;
 import produtora_musical.modelo.servico.Pacote2;
+import produtora_musical.modelo.servico.Pacote3;
 import produtora_musical.modelo.servico.Servico;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Menu {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+        CarregarDados.setFuncionarios();
+        CarregarDados.setClientes();
         int opc;
         Scanner scan = new Scanner(System.in);
         System.out.println("-----------------------------------");
@@ -96,16 +101,6 @@ public class Menu {
             int codigoProdutorMusical = Integer.parseInt(scan.nextLine());
             Funcionario produtorMusical = FuncionarioDAO.buscarFuncionario(codigoProdutorMusical);
 
-            if(opc == 3){
-                System.out.println("------------------------------------------");
-                System.out.println("\t\t\t MARKETING");
-                System.out.println("------------------------------------------");
-                FuncionarioDAO.listFuncionarios("Marketing");
-                System.out.println("------------------------------------------");
-                System.out.println("Informe o codigo de um proficional do Marketing: ");
-                int codigoMarketing = Integer.parseInt(scan.nextLine());
-                Funcionario marketing = FuncionarioDAO.buscarFuncionario(codigoMarketing);
-            }
 
             Servico servico = null;
             if(opc == 1){
@@ -121,11 +116,38 @@ public class Menu {
                 int codigoProdutorVideo = Integer.parseInt(scan.nextLine());
                 Funcionario produtorVideo = FuncionarioDAO.buscarFuncionario(codigoProdutorVideo);
 
-                servico = new Pacote2(orcamentoProjeto, vendedor, diretor, produtorMusical,
+                servico = new Pacote2(orcamentoProjeto, cliente, vendedor, diretor, produtorMusical,
                         produtorVideo, nomeProjeto);
+            }else if (opc == 3){
+                System.out.println("------------------------------------------");
+                System.out.println("\t\t\t PRODUTORES DE VIDEO");
+                System.out.println("------------------------------------------");
+                FuncionarioDAO.listFuncionarios("ProdVideo");
+                System.out.println("------------------------------------------");
+                System.out.println("Informe o codigo de um produtor de video: ");
+                int codigoProdutorVideo = Integer.parseInt(scan.nextLine());
+                Funcionario produtorVideo = FuncionarioDAO.buscarFuncionario(codigoProdutorVideo);
+
+                System.out.println("------------------------------------------");
+                System.out.println("\t\t\t PROFICIONAIS DO MARKETING");
+                System.out.println("------------------------------------------");
+                FuncionarioDAO.listFuncionarios("Marketing");
+                System.out.println("------------------------------------------");
+                System.out.println("Informe o codigo de um proficional do marketing: ");
+                int codigoMarketing = Integer.parseInt(scan.nextLine());
+                Funcionario marketing = FuncionarioDAO.buscarFuncionario(codigoMarketing);
+
+                servico = new Pacote3(orcamentoProjeto, cliente, vendedor, diretor, produtorMusical,
+                        produtorVideo, marketing, nomeProjeto);
             }
 
             ServicoControlador servicoControle = new ServicoControlador();
+            if(servico != null) {
+                servicoControle.addServico(servico);
+                System.out.println("Serviço cadastrado com sucesso!");
+            }else{
+                System.out.println("ocorreu algum erro durante o cadastro do serviço, tente novamente!");
+            }
 
         } else{
             System.out.println("É nescessário cadastrar um cliente antes!");

@@ -6,11 +6,11 @@ import produtora_musical.modelo.funcionario.*;
 public class Pacote3 extends Servico {
     private Funcionario produtorMusica;
     private Funcionario produtorClipe;
-    private Marketing marketing;
+    private Funcionario marketing;
 
-    public Pacote3(double orcamento, Cliente cliente, Vendedor vendedor,
-                   Diretor diretor, ProdutorMusica produtorMusica,
-                   ProdutorVideoClipe produtorClipe, Marketing marketing, String nome){
+    public Pacote3(double orcamento, Cliente cliente, Funcionario vendedor,
+                   Funcionario diretor, Funcionario produtorMusica,
+                   Funcionario produtorClipe, Funcionario marketing, String nome){
         super(orcamento, cliente, vendedor, diretor, nome);
         this.produtorMusica = produtorMusica;
         this.produtorMusica.addServico(this);
@@ -18,7 +18,7 @@ public class Pacote3 extends Servico {
         this.marketing = marketing;
     }
 
-    public Marketing getMarketing() {
+    public Funcionario getMarketing() {
         return marketing;
     }
 

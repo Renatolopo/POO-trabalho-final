@@ -15,8 +15,8 @@ public abstract class Servico {
     private int codigo;
     private Cliente cliente;
 
-    public Servico(double orcamento, Cliente cliente, Vendedor vendedor,
-                   Diretor diretor, String nomeDoProjeto){
+    public Servico(double orcamento, Cliente cliente, Funcionario vendedor,
+                   Funcionario diretor, String nomeDoProjeto){
         this.nomeDoProjeto = nomeDoProjeto;
         this.diretor = diretor;
         this.orcamento = orcamento;

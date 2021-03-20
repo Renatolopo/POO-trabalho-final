@@ -9,11 +9,11 @@ import produtora_musical.modelo.funcionario.Vendedor;
 public class Pacote1 extends Servico {
     private Funcionario produtorMusica;
 
-    public Pacote1(double orcamento, Cliente cliente, Vendedor vendedor,
-                   Diretor diretor, ProdutorMusica produtorMusica, String nome){
+    public Pacote1(double orcamento, Cliente cliente, Funcionario vendedor,
+                   Funcionario diretor, Funcionario produtorMusica, String nome){
         super(orcamento, cliente, vendedor, diretor, nome);
         this.produtorMusica = produtorMusica;
-        this.produtorMusica.addServico(this);
+        //this.produtorMusica.addServico(this);
     }
 
     public Funcionario getProdutorMusica() {
