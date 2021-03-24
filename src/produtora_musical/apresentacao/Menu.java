@@ -31,6 +31,7 @@ public class Menu {
             System.out.print("1 - Cadastrar Funcionario\n" +
                     "2 - Cadastrar Serviço\n" +
                     "3 - Cadastrar Cliente\n" +
+                    "4 - Informações sobre um Funcionario\n" +
                     "0 - Sair\n" +
                     ":");
 
@@ -43,6 +44,8 @@ public class Menu {
                 cadastrarServico(scan);
             } else if(opc == 3){
                 cadastrarCliente(scan);
+            }else if(opc == 4){
+                infoFuncionario(scan);
             }
 
         }while(opc != 0);
@@ -118,6 +121,7 @@ public class Menu {
 
                 servico = new Pacote2(orcamentoProjeto, cliente, vendedor, diretor, produtorMusical,
                         produtorVideo, nomeProjeto);
+                produtorVideo.addServico(servico);
             }else if (opc == 3){
                 System.out.println("------------------------------------------");
                 System.out.println("\t\t\t PRODUTORES DE VIDEO");
@@ -139,8 +143,13 @@ public class Menu {
 
                 servico = new Pacote3(orcamentoProjeto, cliente, vendedor, diretor, produtorMusical,
                         produtorVideo, marketing, nomeProjeto);
+                produtorVideo.addServico(servico);
+                marketing.addServico(servico);
             }
 
+            vendedor.addServico(servico);
+            diretor.addServico(servico);
+            produtorMusical.addServico(servico);
             ServicoControlador servicoControle = new ServicoControlador();
             if(servico != null) {
                 servicoControle.addServico(servico);
@@ -208,5 +217,23 @@ public class Menu {
             funcionarioControlador.setFuncionario(funcionario);
             System.out.println("Funcionario cadastrado");
         }
+    }
+    private static void infoFuncionario(Scanner scan){
+        FuncionarioControlador funcionarioControlador = new FuncionarioControlador();
+        System.out.println("------------------------------");
+        System.out.println("\t\tLISTA DE FUNCIONARIO");
+        funcionarioControlador.listFuncionarios();
+        System.out.println("------------------------------");
+        System.out.print("Informe o codigo de um funcionario para obter informações sobre ele: ");
+        int codFuncionario = Integer.parseInt(scan.nextLine());
+        Funcionario funcionario = funcionarioControlador.buscarFuncionario(codFuncionario);
+        System.out.println("------------------------------");
+        System.out.println("\t\t Informações do Funcionario");
+        System.out.printf("Nome: %s\t Tipo: %s\n" +
+                "Salario: %.2f\t Bonificação: ?\n" +
+                "Quantidade de serviços: %d\t Meta: ? serviços\n",
+                funcionario.getNome(), funcionario.getTipo(), funcionario.getSalario(),
+                funcionario.getQuantidadeDeServicos());
+        System.out.println("------------------------------");
     }
 }

@@ -24,9 +24,15 @@ public class FuncionarioDAO {
     }
 
     public static void listFuncionarios(String tipo){
-        for(Funcionario funcionario : funcionarios){
-            if(funcionario.getTipo() == tipo) {
+        if(tipo == "todos"){
+            for(Funcionario funcionario : funcionarios){
                 System.out.printf("Nome:%s - codigo:%d\n", funcionario.getNome(), funcionario.getIdFuncionario());
+            }
+        }else {
+            for (Funcionario funcionario : funcionarios) {
+                if (funcionario.getTipo() == tipo) {
+                    System.out.printf("Nome:%s - codigo:%d\n", funcionario.getNome(), funcionario.getIdFuncionario());
+                }
             }
         }
     }

@@ -10,5 +10,8 @@ public class FuncionarioControlador {
     public  Funcionario buscarFuncionario(int codigo){
         return FuncionarioDAO.buscarFuncionario(codigo);
     }
+    public void listFuncionarios(){
+        FuncionarioDAO.listFuncionarios("todos");
+    }
 }
 

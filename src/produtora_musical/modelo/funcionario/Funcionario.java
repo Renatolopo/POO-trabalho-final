@@ -11,6 +11,7 @@ public abstract class Funcionario {
     private int idFuncionario;
     private String tipo;
     private ArrayList<Servico> servicos = new ArrayList<>();
+    private int quantidadeDeServicos;
 
     public Funcionario(String nome, double salario, String tipo){
         this.nome = nome;
@@ -18,6 +19,7 @@ public abstract class Funcionario {
         this.cont += 1;
         this.idFuncionario = this.cont;
         this.tipo = tipo;
+        this.quantidadeDeServicos = 0;
     }
 
     public double getSalario() {
@@ -37,5 +39,14 @@ public abstract class Funcionario {
     }
     public void addServico(Servico servico){
         servicos.add(servico);
+        this.quantidadeDeServicos += 1;
+    }
+
+    public int getQuantidadeDeServicos() {
+        return quantidadeDeServicos;
+    }
+
+    public ArrayList<Servico> getServicos() {
+        return servicos;
     }
 }
