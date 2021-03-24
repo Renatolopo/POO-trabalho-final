@@ -4,7 +4,7 @@ import produtora_musical.modelo.servico.Servico;
 
 import java.util.ArrayList;
 
-public class ProdutorVideoClipe extends Funcionario{
+public class ProdutorVideoClipe extends Funcionario implements InterfaceFucionario{
     private int quantidadeVideosProduzido;
     private int metaDeVideos;
 

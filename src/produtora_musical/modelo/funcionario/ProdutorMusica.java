@@ -4,22 +4,22 @@ import produtora_musical.modelo.servico.Servico;
 
 import java.util.ArrayList;
 
-public class ProdutorMusica extends Funcionario{
+public class ProdutorMusica extends Funcionario implements InterfaceFucionario{
     private int metaDeMusicas;
 
     public ProdutorMusica(String nome, double salario, int metaDeMusicas){
         super(nome, salario, "ProdMusical");
         this.metaDeMusicas = metaDeMusicas;
     }
-    public boolean tenBonificacao(){
+    public boolean temBonificacao(){
         if(this.getQuantidadeDeServicos() >= metaDeMusicas){
             return true;
         }else{
             return false;
         }
     }
-    public double getBoniicacao(){
-        if(tenBonificacao()){
+    public double getBonificacao(){
+        if(temBonificacao()){
             ArrayList<Servico> servicos = getServicos();
             double bonificacao = 0;
             int cont = 0;

@@ -4,7 +4,7 @@ import produtora_musical.modelo.servico.Servico;
 
 import java.util.ArrayList;
 
-public class Vendedor extends Funcionario{
+public class Vendedor extends Funcionario implements InterfaceFucionario{
     private int quantidadeDeServicosVendidos;
 
     public Vendedor(String nome, double salario){

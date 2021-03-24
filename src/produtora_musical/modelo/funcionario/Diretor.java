@@ -1,6 +1,6 @@
 package produtora_musical.modelo.funcionario;
 
-public class Diretor extends Funcionario{
+public class Diretor extends Funcionario implements InterfaceFucionario{
     private int metaDeProjetos;
 
     public Diretor(int metaProjetos, String nome, double salario){
