@@ -4,7 +4,7 @@ import produtora_musical.modelo.servico.Servico;
 
 import java.util.ArrayList;
 
-public abstract class Funcionario {
+public abstract class Funcionario implements InterfaceFucionario{
     private String nome;
     private double salario;
     private static int cont = 0;

@@ -32,6 +32,8 @@ public class Menu {
                     "2 - Cadastrar Serviço\n" +
                     "3 - Cadastrar Cliente\n" +
                     "4 - Informações sobre um Funcionario\n" +
+                    "5 - Informações sobre um serviço\n" +
+                    "6 - Informação sobre um cliente\n" +
                     "0 - Sair\n" +
                     ":");
 
@@ -150,6 +152,7 @@ public class Menu {
             vendedor.addServico(servico);
             diretor.addServico(servico);
             produtorMusical.addServico(servico);
+            cliente.addServico(servico);
             ServicoControlador servicoControle = new ServicoControlador();
             if(servico != null) {
                 servicoControle.addServico(servico);
@@ -230,10 +233,18 @@ public class Menu {
         System.out.println("------------------------------");
         System.out.println("\t\t Informações do Funcionario");
         System.out.printf("Nome: %s\t Tipo: %s\n" +
-                "Salario: %.2f\t Bonificação: ?\n" +
+                "Salario: R$%.2f\t Bonificação: R$%.2f\n" +
                 "Quantidade de serviços: %d\t Meta: ? serviços\n",
                 funcionario.getNome(), funcionario.getTipo(), funcionario.getSalario(),
-                funcionario.getQuantidadeDeServicos());
+                funcionario.getBonificacao(), funcionario.getQuantidadeDeServicos());
         System.out.println("------------------------------");
+    }
+
+    private static void infoServico(Scanner scan){
+
+    }
+
+    private static void infoCliente(Scanner sacan){
+        
     }
 }

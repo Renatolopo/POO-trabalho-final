@@ -4,7 +4,7 @@ import produtora_musical.modelo.servico.Servico;
 
 import java.util.ArrayList;
 
-public class Marketing extends Funcionario implements InterfaceFucionario{
+public class Marketing extends Funcionario {
     private int quantidadeDePublicicdade;
 
     public Marketing(String nome, double salario){

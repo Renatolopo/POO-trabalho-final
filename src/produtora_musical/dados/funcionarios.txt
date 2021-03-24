@@ -4,7 +4,7 @@ diretor,25,Travs Sccot,33000
 marketing,Bruno herrique,20000
 marketing,Bella Delphine,5000
 marketing,Felipe neto,20000
-produtor musica,Froid,10000,4
+produtor musica,Froid,10000,0
 produtor musica,Raffa Moreira,30000,7
 produtor musica,Matue,7000,9
 produtor clipe,Kotaka,5000,6
