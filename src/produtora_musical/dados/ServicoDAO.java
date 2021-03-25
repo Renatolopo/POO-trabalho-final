@@ -23,15 +23,8 @@ public class ServicoDAO {
         for(Servico servico : servicos){
             System.out.println("-----");
             System.out.printf("Nome do projeto: %s\n" +
-                    "Valor do Orçamento: %.2f \n" +
-                    "Vendedor: %s \n" +
-                    "Diretor: %s\n" +
-                     "Cliente: %s\n" +
-                    servico.getNomeDoProjeto(),
-                    servico.getOrcamento(),
-                    servico.getVendedor().getNome(),
-                    servico.getDiretor().getNome(),
-                    servico.getCliente().getNome());
+                    "Codigo: %d\n",
+                    servico.getNomeDoProjeto(), servico.getCodigo());
             System.out.println("-----");
         }
     }

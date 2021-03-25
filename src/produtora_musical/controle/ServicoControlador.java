@@ -10,5 +10,8 @@ public class ServicoControlador {
     public Servico buscarServico(int codigoServico){
         return ServicoDAO.buscarServico(codigoServico);
     }
+    public void listServicos(){
+        ServicoDAO.listServico();
+    }
 }
 

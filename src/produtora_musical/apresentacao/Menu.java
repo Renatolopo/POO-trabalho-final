@@ -48,6 +48,10 @@ public class Menu {
                 cadastrarCliente(scan);
             }else if(opc == 4){
                 infoFuncionario(scan);
+            }else if(opc == 5){
+                infoServico(scan);
+            }else if(opc == 6){
+                infoCliente(scan);
             }
 
         }while(opc != 0);
@@ -241,10 +245,26 @@ public class Menu {
     }
 
     private static void infoServico(Scanner scan){
-
+        ServicoControlador servicoControlador = new ServicoControlador();
+        System.out.println("-----------------------------------");
+        System.out.println("\t\t Lista de Serviços");
+        servicoControlador.listServicos();
+        System.out.println("-----------------------------------");
+        System.out.printf("Informe o codigo de um Serviço para obter informações sobre ele: ");
+        int codServico = Integer.parseInt(scan.nextLine());
+        Servico servico = servicoControlador.buscarServico(codServico);
+        servico.info();
     }
 
-    private static void infoCliente(Scanner sacan){
-        
+    private static void infoCliente(Scanner scan){
+        ClienteControlador clienteControlador = new ClienteControlador();
+        System.out.println("-----------------------------------");
+        System.out.println("\t\t Lista de Clientes");
+        clienteControlador.listClientes();
+        System.out.println("-----------------------------------");
+        System.out.printf("Informe o codigo de um clienete para obter informações sobre ele: ");
+        int codCliente = Integer.parseInt(scan.nextLine());
+        Cliente cliente = clienteControlador.buscarCliente(codCliente);
+        cliente.info();
     }
 }

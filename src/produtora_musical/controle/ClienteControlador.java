@@ -10,4 +10,7 @@ public class ClienteControlador {
     public Cliente buscarCliente(int codigoCliente){
         return ClienteDAO.buscarCliente(codigoCliente);
     }
+    public void  listClientes(){
+        ClienteDAO.listClientes();
+    }
 }

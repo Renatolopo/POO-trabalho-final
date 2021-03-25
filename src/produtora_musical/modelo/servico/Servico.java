@@ -6,7 +6,7 @@ import produtora_musical.modelo.funcionario.Diretor;
 import produtora_musical.modelo.funcionario.Funcionario;
 import produtora_musical.modelo.funcionario.Vendedor;
 
-public abstract class Servico {
+public abstract class Servico implements InterfaceServico{
     private String nomeDoProjeto;
     private double orcamento;
     private Funcionario vendedor;

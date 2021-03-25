@@ -23,4 +23,17 @@ public class Pacote2 extends Servico {
     public Funcionario getProdutorMusica() {
         return produtorMusica;
     }
+
+    public void info(){
+        System.out.println("------------------------------");
+        System.out.println("\t\t Informações Sobre o Servico");
+        System.out.printf("Nome: %s\t Orçamento: %.2f\n" +
+                        "Cliente: %s\t Vendedor: %s\n" +
+                        "Diretor: %s\t Produtor Musical: %s\n" +
+                        "Produtor VideoClipe: %s\n", this.getNomeDoProjeto(),
+                this.getOrcamento(), this.getCliente().getNome(),
+                this.getVendedor().getNome(), this.getDiretor().getNome(),
+                this.getProdutorMusica().getNome(), this.getProdutorClipe().getNome());
+        System.out.println("------------------------------");
+    }
 }
