@@ -27,9 +27,10 @@ public class Pacote2 extends Servico {
     public void info(){
         System.out.println("------------------------------");
         System.out.println("\t\t Informações Sobre o Servico");
-        System.out.printf("Nome: %s\t Orçamento: %.2f\n" +
-                        "Cliente: %s\t Vendedor: %s\n" +
-                        "Diretor: %s\t Produtor Musical: %s\n" +
+        System.out.printf("Pacote contratado: Pacote 2 - (Produção de música com video clipe)\n" +
+                        "Nome: %s\t\t Orçamento: %.2f\n" +
+                        "Cliente: %s\t\t Vendedor: %s\n" +
+                        "Diretor: %s\t\t Produtor Musical: %s\n" +
                         "Produtor VideoClipe: %s\n", this.getNomeDoProjeto(),
                 this.getOrcamento(), this.getCliente().getNome(),
                 this.getVendedor().getNome(), this.getDiretor().getNome(),

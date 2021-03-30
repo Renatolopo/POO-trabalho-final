@@ -35,4 +35,20 @@ public class ProdutorMusica extends Funcionario{
         }
     }
 
+    public int getMetaDeMusicas() {
+        return metaDeMusicas;
+    }
+
+    @Override
+    public void getInfo() {
+        System.out.println("------------------------------");
+        System.out.println("\t\t Informações do Funcionario");
+        System.out.printf("Nome: %s\t Tipo: %s\n" +
+                        "Salario: R$%.2f\t Bonificação: R$%.2f\n" +
+                        "Quantidade de serviços: %d\t Meta: %d serviços\n",
+                this.getNome(), this.getTipo(), this.getSalario(),
+                this.getBonificacao(), this.getQuantidadeDeServicos(),
+                this.getMetaDeMusicas());
+        System.out.println("------------------------------");
+    }
 }

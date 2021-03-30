@@ -34,7 +34,7 @@ public class Cliente {
     public void info(){
         System.out.println("------------------------------");
         System.out.println("\t\t Informações do Cliente");
-        System.out.printf("Nome: %s\nServiços:", this.getNome());
+        System.out.printf("Nome: %s\nServiços:\n", this.getNome());
         for(Servico servico : this.getServicos()){
             System.out.printf("%s \tcodigo: %d\n", servico.getNomeDoProjeto(), servico.getCodigo());
         }

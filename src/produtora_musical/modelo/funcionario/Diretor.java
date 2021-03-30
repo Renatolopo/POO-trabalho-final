@@ -24,4 +24,20 @@ public class Diretor extends Funcionario{
         }
     }
 
+    public int getMetaDeProjetos() {
+        return metaDeProjetos;
+    }
+
+    public void getInfo(){
+        System.out.println("------------------------------");
+        System.out.println("\t\t Informações do Funcionario");
+        System.out.printf("Nome: %s\t Tipo: %s\n" +
+                        "Salario: R$%.2f\t Bonificação: R$%.2f\n" +
+                        "Quantidade de serviços: %d\t Meta: %d serviços\n",
+                this.getNome(), this.getTipo(), this.getSalario(),
+                this.getBonificacao(), this.getQuantidadeDeServicos(),
+                this.getMetaDeProjetos());
+        System.out.println("------------------------------");
+    }
+
 }
