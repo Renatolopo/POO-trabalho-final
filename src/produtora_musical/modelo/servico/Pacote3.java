@@ -13,7 +13,6 @@ public class Pacote3 extends Servico {
                    Funcionario produtorClipe, Funcionario marketing, String nome){
         super(orcamento, cliente, vendedor, diretor, nome);
         this.produtorMusica = produtorMusica;
-        this.produtorMusica.addServico(this);
         this.produtorClipe = produtorClipe;
         this.marketing = marketing;
     }
