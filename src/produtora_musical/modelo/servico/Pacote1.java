@@ -13,7 +13,6 @@ public class Pacote1 extends Servico {
                    Funcionario diretor, Funcionario produtorMusica, String nome){
         super(orcamento, cliente, vendedor, diretor, nome);
         this.produtorMusica = produtorMusica;
-        //this.produtorMusica.addServico(this);
     }
 
     public Funcionario getProdutorMusica() {

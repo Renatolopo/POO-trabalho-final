@@ -26,7 +26,6 @@ public abstract class Servico implements InterfaceServico{
         this.cliente = cliente;
     }
 
-    // TODO: add serviços em produtor
 
     public double getOrcamento() {
         return orcamento;
