@@ -18,8 +18,8 @@ import java.util.Scanner;
 
 public class Menu {
     public static void main(String[] args) throws IOException {
-        CarregarDados.setFuncionarios();
-        CarregarDados.setClientes();
+        //CarregarDados.setFuncionarios();
+        //CarregarDados.setClientes();
         int opc;
         Scanner scan = new Scanner(System.in);
         System.out.println("-----------------------------------");
